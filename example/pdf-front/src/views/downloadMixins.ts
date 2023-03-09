@@ -63,7 +63,6 @@ export default class extends Vue {
           duration: 6000,
           iconClass: 'notify-icon-style',
         })
-
         this.downloadPdf(res.data, downloadFileName)
         this.active = 3
         this.hideDialog(true)

@@ -50,6 +50,7 @@ export default class extends mixins(downloadMixins) {
   isLoading = false
 
   mounted() {
+    console.log('this.$route: ', this.$route);
     if (this.$route.query && this.$route.query.isServer) {
       this.serverDownload()
     }
@@ -66,6 +67,7 @@ export default class extends mixins(downloadMixins) {
     } finally {
       if (this.isResponseSuccess) {
         setTimeout(() => {
+          console.log('this.handleGeneratePDF');
           this.handleGeneratePDF()
         }, 2000)
       }
@@ -78,9 +80,14 @@ export default class extends mixins(downloadMixins) {
       // @ts-ignore
       moduleId: '#print-operate-report', // 自定义页面id
       pageInfo: {
-        defaultType: 'HEADER_TYPE', // 页眉页脚类型：HEADER_TYPE  有头无尾；NORMAL_TYPE 无头无尾；FOOTER_TYPE  无头有尾；HEADER_FOOTER_TYPE  有头有尾
-        needTpl: true,
-        waterMark: false, // 是否需要水印, 默认为false
+        // title?: string; // 模块标题
+        defaultType: 'NORMAL_TYPE', // 页眉页脚类型：
+        // HEADER_TYPE  有头无尾； // 项目初始值
+        // NORMAL_TYPE 无头无尾；
+        // FOOTER_TYPE  无头有尾；
+        // HEADER_FOOTER_TYPE  有头有尾
+        needTpl: false, // 是否需要头尾模板,默认为false
+        waterMark: true, // 是否需要水印, 默认为false
         waterMarkConfig: {
           waterMarkContent: '前端大喜子-droden',
           waterMarkId: 'print-operate-report', //需要做水印的元素的id

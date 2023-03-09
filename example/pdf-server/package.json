@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:local": "cross-env NODE_ENV=development nodemon  ./src/app.js  --watch src/", 
-    "dev:local:common":"本地开发调试，启动一个进程",
+    "dev:local": "cross-env NODE_ENV=development nodemon  ./src/app.js  --watch src/",
+    "dev:local:common": "本地开发调试，启动一个进程",
     "dev": "cross-env NODE_ENV=production --max_old_space_size=2048 nodemon  ./src/app.js  --watch src/",
-    "dev:common":"生产前台启动，使用cluster模块启动多进程、进程守护",
+    "dev:common": "生产前台启动，使用cluster模块启动多进程、进程守护",
     "start:pm2": "cross-env NODE_ENV=production pm2 start ./pm2.json",
     "start:pm2:common": "生产后台启动，用pm2启动多进程、进程守护",
     "start:docker": "cross-env NODE_ENV=production --max_old_space_size=2048 nodemon  ./src/app.js  --watch src/",
@@ -45,6 +45,7 @@
     "log4js": "^6.3.0",
     "nodemon": "^2.0.7",
     "pm2": "^5.2.0",
+    "puppeteer": "^19.7.3",
     "uuid": "^8.3.2"
   }
 }

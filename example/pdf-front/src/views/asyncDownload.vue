@@ -61,6 +61,7 @@ export default class extends mixins(downloadMixins) {
   }
 
   mounted() {
+    console.log('this.$route: ', this.$route);
     if (this.$route.query && this.$route.query.isServer) {
       this.serverDownload()
     }
